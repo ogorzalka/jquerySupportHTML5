@@ -1,6 +1,6 @@
 /*
-
-   Adapted form the DiveIntoHTML5 Article
+   Author : Olivier Gorzalka (http://clearideaz.com)
+   Adapted from the DiveIntoHTML5 Article
    http://diveintohtml5.org/everything.html
    Usage : $.support.audio to test the Audio support or jQuery.support.color to test the input[type=color] implementation
 

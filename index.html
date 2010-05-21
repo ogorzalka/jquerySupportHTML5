@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="fr-FR">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>HTML5 detection with jQuery Support</title>
+  <link rel="stylesheet" type="text/css" media="all" href="style.css">
+  <link rel="icon" type="image/png" href="http://clearideaz.com/wp-content/themes/clearideaz/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="http://clearideaz.com/wp-content/themes/clearideaz/favicon.ico" />
+</head>
+<body>
+  <h1>Extend of jQuery.support for HTML5</h1>
+  <p>Demonstration to test the level of HTML5 support in your browser (<a href="http://clearideaz.com/2010/05/detecter-le-support-html5-du-navigateur-via-jquery/" title="Détecter le support HTML5 du navigateur via Jquery" lang="fr">View the related article on Clearideaz.com</a>)</p>
+  <p></p>
+  <ul>
+    <li>Testing your browser, yes we can...</li>
+  </ul>
+  <script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.2.js"></script>
+  <script src="jquerySupportHTML5.js"></script>
+  <script>
+  var supportList = {
+    audio:'&lt;audio&gt;',
+    audioMp3:'&lt;audio&gt; in MP3 format',
+    audioVorbis:'&lt;audio&gt;  in Vorbis format',
+    audioWav:'&lt;audio&gt; in WAV format',
+    audioAAC:'&lt;audio&gt;  in AAC format',
+    canvas:'&lt;canvas&gt;',
+    canvasTxt:'&lt;canvas&gt;  text API',
+    command:'&lt;command&gt;',
+    datalist:'&lt;datalist&gt;',
+    details:'&lt;details&gt;',
+    device:'&lt;device&gt;',
+    formConstraints:'&lt;form&gt;  constraint validation',
+    iframeSandbox:'&lt;iframe sandbox&gt;',
+    iframeSrcDoc:'&lt;iframe srcdoc&gt;',
+    autofocus:'&lt;input autofocus&gt;',
+    placeholder:'&lt;input placeholder&gt;',
+    color:'&lt;input type="color"&gt;',
+    email:'&lt;input type="email"&gt;',
+    number:'&lt;input type="number"&gt;',
+    range:'&lt;input type="range"&gt;',
+    search:'&lt;input type="search"&gt;',
+    tel:'&lt;input type="tel"&gt;',
+    url:'&lt;input type="url"&gt;',
+    date:'&lt;input type="date"&gt;',
+    time:'&lt;input type="time"&gt;',
+    datetime:'&lt;input type="datetime"&gt;',
+    'datetime-local':'&lt;input type="datetime-local"&gt;',
+    month:'&lt;input type="month"&gt;',
+    week:'&lt;input type="week"&gt;',
+    meter:'&lt;meter&gt;',
+    output:'&lt;output&gt;',
+    progress:'&lt;progress&gt;',
+    time:'&lt;time&gt;',
+    video:'&lt;video&gt;',
+    videoCaptions:'&lt;video&gt;  captions',
+    videoPoster:'&lt;video poster&gt;',
+    videoWebM:'&lt;video&gt; in WebM format',
+    videoH264:'&lt;video&gt;  in H.264 format',
+    videoTheora:'&lt;video&gt;  in Theora format',
+    contentEditable:'contentEditable',
+    crossDocumentMessaging:'Cross-document messaging',
+    dragAndDrop:'Drag-and-drop',
+    fileAPI:'File API',
+    geoLocation:'Geolocation',
+    history:'History',
+    localStorage:'Local storage',
+    microdata:'Microdata',
+    applicationCache:'Offline web applications',
+    eventSource:'Server-sent events',
+    sessionStorage:'Session storage',
+    svg:'SVG',
+    svgInHtml:'SVG  in text/html',
+    webSimpleDB:'WebSimpleDB',
+    webSocket:'Web Sockets',
+    openDatabase:'Web SQL Database',
+    webWorkers:'Web Workers',
+    undo:'Undo'
+  };
+  
+  var htmlTest = '',
+      win = lose = 0,
+      className,
+      txtResult;
+  $(function() {
+    for(supportAlias in supportList) {
+      if ($.support[supportAlias]) {
+        className = 'rocks';
+        txtResult = 'is active in your browser';
+        win++;
+      } else {
+        className = 'failed';
+        txtResult = 'isn\'t available in your browser';
+        lose++;
+      }
+      htmlTest += '<li class="'+className+'"><strong>'+supportList[supportAlias]+'</strong> '+txtResult+' <pre>// $.support.'+supportAlias+' return '+((className=='rocks') ? 'true': 'false')+'</pre></li>'
+    }
+    var htmlSupport = 'Your HTML5 Browser support : <strong>'+Math.round(win*100/(win+lose))+' %</strong>';
+
+    $('ul').html(htmlTest).after('<p>That\'s all folks</p>');
+    $('p').eq(1).addClass('notice').html(htmlSupport)
+  })
+
+  </script>
+</body>
+</html>

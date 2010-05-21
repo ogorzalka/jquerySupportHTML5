@@ -27,6 +27,14 @@ Usage : $.support.audio to test the Audio support or jQuery.support.color to tes
         g[g[i]].setAttribute('type', g[i])
     }
     
+    function sessionStorage() {
+       try {
+         return ('sessionStorage' in window) && window['sessionStorage'] !== null;
+       } catch(e) {
+         return false;
+       }
+    }
+    
     $.extend($.support, {
         audio: !! doc.createElement('audio').canPlayType,
         audioMp3: !! (a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, '')),
@@ -77,7 +85,7 @@ Usage : $.support.audio to test the Audio support or jQuery.support.color to tes
         microdata: !! doc.getItems,
         applicationCache: !! window.applicationCache,
         eventSource: typeof EventSource !== 'undefined',
-        sessionStorage: ('sessionStorage' in window) && window['sessionStorage'] !== null,
+        sessionStorage: sessionStorage(),
         svg: !! (doc.createElementNS && doc.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect),
         svgInHtml: !! (window.SVGSVGElement && f.firstChild instanceof window.SVGSVGElement),
         webSimpleDB: !! window.indexedDB,

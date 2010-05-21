@@ -75,7 +75,7 @@ Usage : $.support.audio to test the Audio support or jQuery.support.color to tes
         videoWebM: !! (e.canPlayType && e.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/no/, '')),
         videoH264: !! (e.canPlayType && e.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"').replace(/no/, '')),
         videoTheora: !! (e.canPlayType && e.canPlayType('video/ogg; codecs="theora, vorbis"').replace(/no/, '')),
-        contentEditable: 'isContentEditable' in doc.createElement('span'),
+        contentEditable: 'contentEditable' in document.createElement('div'),
         crossDocumentMessaging: !! window.postMessage,
         dragAndDrop: 'draggable' in doc.createElement('span'),
         fileAPI: typeof FileReader != 'undefined',

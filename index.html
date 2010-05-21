@@ -92,7 +92,7 @@
         txtResult = 'isn\'t available in your browser';
         lose++;
       }
-      htmlTest += '<li class="'+className+'"><strong>'+supportList[supportAlias]+'</strong> '+txtResult+' <pre>// $.support.'+supportAlias+' return '+((className=='rocks') ? 'true': 'false')+'</pre></li>'
+      htmlTest += '<li class="'+className+'"><strong>'+supportList[supportAlias]+'</strong> '+txtResult+'</li>'
     }
     var htmlSupport = 'Your HTML5 Browser support : <strong>'+Math.round(win*100/(win+lose))+' %</strong>';
 
